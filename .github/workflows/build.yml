@@ -159,6 +159,7 @@ jobs:
           mkdir -p "$SRC_DIR/device/xiaomi"
           rm -rf "$SRC_DIR/device/xiaomi/begonia"
           cp -a device/xiaomi/begonia "$SRC_DIR/device/xiaomi/begonia"
+          sed -i 's/libfscrypttwrp/libfscrypt/g' "$SRC_DIR/system/core/fs_mgr/Android.bp" 2>/dev/null || true
 
       - name: Trim disk before build
         run: |
