@@ -36,7 +36,7 @@ permissions:
   contents: write
 
 env:
-  MANIFEST_URL: 'https://github.com/SKYHAWK-Recovery-Project/platform_manifest_twrp_omni.git'
+  MANIFEST_URL: 'https://github.com/SHRP/manifest.git'
   MANIFEST_BRANCH: ${{ github.event.inputs.manifest_branch || 'shrp-12.1' }}
   SRC_DIR: 'aosp'
   CCACHE_DIR: '${{ github.workspace }}/.ccache'
