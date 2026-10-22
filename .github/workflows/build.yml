@@ -87,7 +87,14 @@ jobs:
             libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils \
             lz4 pngcrush python3 rsync schedtool squashfs-tools unzip \
             xz-utils zip zlib1g-dev openjdk-11-jdk-headless jq
+          sudo apt-get install -y python2 python2-minimal 2>/dev/null || true
           sudo ln -sf /usr/bin/python3 /usr/bin/python 2>/dev/null || true
+          if ! command -v python2.7 >/dev/null 2>&1; then
+            sudo ln -sf "$(which python3)" /usr/local/bin/python2.7
+          fi
+          if ! command -v python2 >/dev/null 2>&1; then
+            sudo ln -sf "$(which python3)" /usr/local/bin/python2
+          fi
           java -version 2>&1
 
       - name: Set JDK 11
